@@ -1,0 +1,28 @@
+   CREATE TABLE movielist(id int, title str, vote_average float, vote_count int, status str, release_date str, revenue int, runtime int, adult bool, backdrop_path str, budget int, homepage str, imdb_id str, original_language str, original_title str, overview str, popularity float, poster_path str, tagline str, genres str, production_companies str, production_countries str, spoken_languages str, keywords str);
+   INSERT INTO movielist (id, title, vote_average, vote_count, status, release_date, revenue, runtime, adult, backdrop_path, budget, homepage, imdb_id, original_language, original_title, overview, popularity, poster_path, tagline, genres, production_companies, production_countries, spoken_languages, keywords)
+   SELECT
+    id,
+    title,
+    vote_average,
+    vote_count,
+    status,
+    release_date,
+    revenue,
+    runtime,
+    adult,
+    backdrop_path,
+    budget,
+    homepage,
+    imdb_id,
+    original_language,
+    original_title,
+    overview,
+    popularity,
+    poster_path,
+    tagline,
+    genres,
+    production_companies,
+    production_countries,
+    spoken_languages,
+    keywords
+   FROM json_populate_recordset(null::movielist, {{FilePicker1.files[0].data}});
